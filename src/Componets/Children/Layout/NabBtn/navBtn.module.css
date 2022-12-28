@@ -1,0 +1,38 @@
+
+
+.signInBtn{
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    text-align: left;
+    margin-right: 15px;
+    padding: 12px 26px;
+    background-color: #6A35FF;
+    color: #fff;
+    border-radius: 8px;
+    transition: 0.5s;
+
+}
+.signInBtn:hover{
+    background-color: #fff;
+    color: #6A35FF;
+    border: 1px solid #6A35FF;
+
+}
+
+.navBtn{
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    text-align: right;
+    padding: 12px 26px;
+    color: #6A35FF;
+    border: 1px solid #6A35FF;
+    border-radius: 8px;
+    transition: 0.5s;
+}
+.navBtn:hover{
+    background-color: #6A35FF;
+    color: #fff;
+
+}
