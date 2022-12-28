@@ -1,1 +1,0 @@
-hasan vai vala ni
