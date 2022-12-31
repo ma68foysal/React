@@ -1,9 +1,11 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import header from './Header.module.css'
 import Logo from './Hasan-Logo.png'
-
+import { users } from '../../App';
 function Header() {
-    const [isLoggedIn , setIsLoggedIn] = useState(false)
+    
+    const user = useContext(users)
+   
 
   return (
    
@@ -22,7 +24,7 @@ function Header() {
                 <a className={header.navLinks} href=""><li className={header.navItem}>Blog</li></a>
                 
                {
-                isLoggedIn && (
+                user.isLoggedIn && (
                 <a className={header.navLinks} href=""><li className={header.navItem}>Dashboard</li></a>
 
                 )
@@ -36,7 +38,7 @@ function Header() {
         <div className={header.navBtn}>
             <input type="text" />
             {
-                isLoggedIn ?(<button className={header.btn} type='button'>Logout</button>):(<button className={header.btn} type='button'>Login</button>)
+                user.isLoggedIn ?(<button className={header.btn} type='button'onClick={()=>user.setIsLoggedIn(false)}>Logout</button>):(<button className={header.btn} type='button' onClick={()=>user.setIsLoggedIn(true)}>Login</button>)
             }
             
             <button type='button'>ThemeSwitch</button>
