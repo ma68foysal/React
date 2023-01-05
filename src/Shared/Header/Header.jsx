@@ -1,13 +1,17 @@
 import React, { useContext, useState } from 'react'
 import header from './Header.module.css'
 import Logo from './Hasan-Logo.png'
-import { users } from '../../App';
+import { styles, users } from '../../App';
 function Header() {
+
+    const styleProp = useContext(styles)
+
     
     const user = useContext(users)
-    const [style,setStyle]=useState('')
+   
     function handlePopup(e){
-        setStyle('block')
+     styleProp.setStyle('block')
+        
 
     }
    
@@ -42,12 +46,17 @@ function Header() {
         </div>
         <div className={header.navBtn}>
             <input type="text" />
-            {
-                user.isLoggedIn ?(<button className={header.btn} type='button'onClick={()=>user.setIsLoggedIn(false)}>Logout</button>):(<button className={header.btn} type='button' onClick={handlePopup}>Login</button>)
-            }
+          {
+            user.visitor ? 
+                <button className={header.btn} type='button'onClick={()=>user.setIsLoggedIn(false)}>Logout</button>:
+                <button className={header.btn} type='button' onClick={handlePopup}>Login</button>
+            
+          }
+                
+          
             
             <button type='button'>ThemeSwitch</button>
-            {/* <span>{user.visitor.result.name}</span> */}
+          
 
         </div>
 
