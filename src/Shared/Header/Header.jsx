@@ -5,6 +5,11 @@ import { users } from '../../App';
 function Header() {
     
     const user = useContext(users)
+    const [style,setStyle]=useState('')
+    function handlePopup(e){
+        setStyle('block')
+
+    }
    
 
   return (
@@ -38,14 +43,16 @@ function Header() {
         <div className={header.navBtn}>
             <input type="text" />
             {
-                user.isLoggedIn ?(<button className={header.btn} type='button'onClick={()=>user.setIsLoggedIn(false)}>Logout</button>):(<button className={header.btn} type='button' onClick={()=>user.setIsLoggedIn(true)}>Login</button>)
+                user.isLoggedIn ?(<button className={header.btn} type='button'onClick={()=>user.setIsLoggedIn(false)}>Logout</button>):(<button className={header.btn} type='button' onClick={handlePopup}>Login</button>)
             }
             
             <button type='button'>ThemeSwitch</button>
+            {/* <span>{user.visitor.result.name}</span> */}
 
         </div>
 
         </div>
+       
         </>
     
   )

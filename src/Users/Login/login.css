@@ -1,0 +1,22 @@
+.card{
+    width: 324px !important;
+    padding: 30px;
+}
+.card-body{
+    width: 100%;
+    background-color: aquamarine;
+    border-radius: 8px;
+}
+.login_btn{
+    padding-top:7px;
+    padding-bottom: 11px;
+    background-color: rgba(109, 88, 245, 1);
+    border-radius: 6px;
+    border: none;
+    display: inline-block;
+    color: #ffffff;
+    font-family: eudoxus-sans-500;
+    font-size: 14px;
+    line-height: 22px;
+    margin-top: 27px;
+}
