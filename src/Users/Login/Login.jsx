@@ -38,6 +38,7 @@ function Login() {
 
             );
             const result= await respons.json()
+            console.log(result);
           
             user.setIsLoggedIn(true)
             ui.setStyle('none')
@@ -52,7 +53,7 @@ function Login() {
 
   return (
 
-    <div style={{display:`${style}`}}>
+    <div className='position' style={{display:`${style}`}}>
      
       
       <div className="card m-auto">

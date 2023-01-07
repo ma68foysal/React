@@ -8,6 +8,10 @@ function Header() {
 
     
     const user = useContext(users)
+    const {visitor}=user
+    function handleUser(){
+      sessionStorage.removeItem('visitor')
+    }
    
     function handlePopup(e){
      styleProp.setStyle('block')
@@ -48,7 +52,7 @@ function Header() {
             <input type="text" />
           {
             user.visitor ? 
-                <button className={header.btn} type='button'onClick={()=>user.setIsLoggedIn(false)}>Logout</button>:
+                <button className={header.btn} type='button'onClick={()=> sessionStorage.removeItem('user')}>Logout</button>:
                 <button className={header.btn} type='button' onClick={handlePopup}>Login</button>
             
           }

@@ -1,5 +1,6 @@
 import { createContext, useState } from 'react';
 import './App.css';
+import Hero from './Hero/Hero';
 import Layout from './Layout/Layout';
 import Posts from './Layout/Posts/Posts';
 import Login from './Users/Login/Login';
@@ -13,7 +14,7 @@ function App() {
   
 
   const sessionValue = sessionStorage.getItem('user')
-  console.log(sessionValue);
+  
 
 
   const visitor = JSON.parse(sessionValue)
@@ -39,17 +40,18 @@ function App() {
     setIsLoggedIn: setIsLoggedIn
   }
 
-  // console.log(process.env.REACT_APP_API_URL);
+ 
 
   return (
-  <div>
+  <div onClick={()=>stylesValue.style === "block"?'none':stylesValue.show === 'block'?'none':'block'}>
     
     <users.Provider value={userInfo}>
     <styles.Provider value={stylesValue} >
-    <Layout>
+    <Layout >
       <Login/>
       <Regi/>
       <Posts/>
+      <Hero/>
 
     </Layout>
     </styles.Provider>

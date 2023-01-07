@@ -14,6 +14,7 @@ function Posts() {
     
       
   useEffect(()=> {
+
     fetch('https://blogs-webiste-api.onrender.com/post')
     .then((res) => res.json())
     .then((data)=>setPost(data))
@@ -28,10 +29,10 @@ function Posts() {
       
             
        {
-        user?.visitor && (
-          post.map((posts)=>(
+        user?.visitor &&(
+          post.map((posts,i)=>(
        
-            <div className={styles.wrapper}>
+            <div className={styles.wrapper} key={i}>
               <div className={styles.card}>
                 <div className={styles.card_banner}>
                   <p className={`${styles.category_tag} ${styles.popular}`}>Blog</p>
@@ -55,6 +56,7 @@ function Posts() {
         
        ))
        }
+       
        
         
           
