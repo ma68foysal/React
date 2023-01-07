@@ -38,10 +38,11 @@ function Login() {
 
             );
             const result= await respons.json()
+            
             console.log(result);
           
             user.setIsLoggedIn(true)
-            ui.setStyle('none')
+            // ui.setStyle('none')
             sessionStorage.setItem('user',JSON.stringify(result))
 
         }catch(error ){
