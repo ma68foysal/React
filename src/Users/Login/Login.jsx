@@ -22,7 +22,8 @@ function Login() {
    }
     
   
-    
+   console.log(login.email, login.password);
+
       async function handleClick() {
         try{
             const respons = await fetch("https://blogs-webiste-api.onrender.com/users/signin",
@@ -31,8 +32,7 @@ function Login() {
             headers: {
                 "Content-Type": "application/json",
               },
-            body:JSON.stringify(login)  
-
+            body: JSON.stringify(login)
         }
          
 
@@ -42,7 +42,7 @@ function Login() {
             console.log(result);
           
             user.setIsLoggedIn(true)
-            // ui.setStyle('none')
+            ui.setStyle('none')
             sessionStorage.setItem('user',JSON.stringify(result))
 
         }catch(error ){
