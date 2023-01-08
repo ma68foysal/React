@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { users,styles } from '../../App'
 import './login.css'
 
@@ -23,8 +23,11 @@ function Login() {
     
   
    console.log(login.email, login.password);
+    
+  
 
       async function handleClick() {
+       
         try{
             const respons = await fetch("https://blogs-webiste-api.onrender.com/users/signin",
         {
