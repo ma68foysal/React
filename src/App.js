@@ -9,19 +9,19 @@ import Regi from './Users/Regi/Regi';
 
 export const users = createContext()
 export const styles  = createContext()
+export const themeSwitch = createContext()
 
 function App() {
   
 
   const sessionValue = sessionStorage.getItem('user')
   
-
-
   const visitor = JSON.parse(sessionValue)
 
 
   const [style,setStyle]=useState('none')
   const [show,setShow]=useState('none')
+ 
    
   const stylesValue={
     style:style,
@@ -39,12 +39,16 @@ function App() {
     isLoggedIn: isLoggedIn,
     setIsLoggedIn: setIsLoggedIn
   }
+  const [theme , setTheme] = useState(false)
 
- 
+  const themeInfo ={
+    theme:theme,
+    setTheme:setTheme,
+  }
 
   return (
   <div onClick={()=>stylesValue.style === "block"?'none':stylesValue.show === 'block'?'none':'block'}>
-    
+    <themeSwitch.Provider value={themeInfo}>
     <users.Provider value={userInfo}>
     <styles.Provider value={stylesValue} >
     <Layout >
@@ -56,7 +60,7 @@ function App() {
     </Layout>
     </styles.Provider>
     </users.Provider>
-    
+    </themeSwitch.Provider>
   </div>
 
   );

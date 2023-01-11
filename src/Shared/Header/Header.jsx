@@ -1,8 +1,16 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useRef, useState } from 'react'
 import header from './Header.module.css'
 import Logo from './Hasan-Logo.png'
-import { styles, users } from '../../App';
+import { styles, themeSwitch, users } from '../../App';
 function Header() {
+  const ThemeSwitch=useContext(themeSwitch)
+  const{theme,setTheme}=ThemeSwitch
+  const inputRef = useRef(null)
+  function handleRef(){
+    inputRef.current.focus()
+  }
+  
+
 
     const styleProp = useContext(styles)
 
@@ -49,7 +57,11 @@ function Header() {
 
         </div>
         <div className={header.navBtn}>
-            <input type="text" />
+
+
+            <input type="text" placeholder='current' ref={inputRef} />
+            <button onClick={handleRef} >focus</button>
+
           {
             user.visitor ? 
                 <button className={header.btn} type='button'onClick={()=> sessionStorage.removeItem('user')}>Logout</button>:
@@ -59,7 +71,7 @@ function Header() {
                 
           
             
-            <button type='button'>ThemeSwitch</button>
+            <button type='button' onClick={()=>setTheme(!theme)}>ThemeSwitch</button>
           
 
         </div>

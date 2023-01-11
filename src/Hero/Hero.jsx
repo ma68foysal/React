@@ -2,17 +2,21 @@ import userEvent from '@testing-library/user-event'
 import React,{useContext} from 'react'
 import './hero.css'
 import Img from './Img.png'
-import { users } from '../App'
+import dark from './dark.png'
+import { themeSwitch, users } from '../App'
 
 function Hero() {
     const user = useContext(users)
+    const ThemeSwitch=useContext(themeSwitch)
+    console.log(ThemeSwitch);
   
    const{visitor}=user
    
   return (
     visitor === null &&(
         <div className='banner'>
-        <img className='img' src={Img} alt="" />
+          {ThemeSwitch.theme === false ? <img className='img' src={Img} alt="" />:<img className='img' src={dark} alt="" />}
+        
       
     </div>
     )
