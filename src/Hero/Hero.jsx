@@ -8,7 +8,7 @@ import { themeSwitch, users } from '../App'
 function Hero() {
     const user = useContext(users)
     const ThemeSwitch=useContext(themeSwitch)
-    console.log(ThemeSwitch);
+   
   
    const{visitor}=user
    
