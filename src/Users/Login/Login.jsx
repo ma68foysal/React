@@ -21,45 +21,58 @@ function Login() {
         ui.setShow('block')
    }
     
-  
-  
-    
-  
-
-      async function handleClick() {
+      // async function handleClick() {
        
-        try{
-            let respons = await fetch("https://blogs-webiste-api.onrender.com/users/signin",
-        {
-            method: 'POST',
-            headers: {
-                "Content-Type": "application/json",
-              },
-            body: JSON.stringify(login)
-        }
+      //   try{
+      //       let respons = await fetch("https://blogs-webiste-api.onrender.com/users/signin",
+      //   {
+      //       method: 'POST',
+      //       headers: {
+      //           "Content-Type": "application/json",
+      //         },
+      //       body: JSON.stringify(login)
+      //   }
          
 
-            );
-            let result= await respons.json()
+      //       );
+      //       let result= await respons.json()
             
-            console.log(result);
+      //       console.log(result);
           
-            user.setIsLoggedIn(true)
-            ui.setStyle('none')
-            sessionStorage.setItem('user',JSON.stringify(result))
+      //       user.setIsLoggedIn(true)
+      //       ui.setStyle('none')
+      //       sessionStorage.setItem('user',JSON.stringify(result))
 
-        }catch(error ){
-            console.error(error.message)
-        }
+      //   }catch(error ){
+      //       console.error(error.message)
+      //   }
         
+      // }
+
+      async function handleLogin(e) {
+        e.preventDefault()
+        try {
+          const response = await fetch('https://blogs-webiste-api.onrender.com/users/signin', {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify(login)
+          })
+
+          const result = await response.json()
+          console.log(result);
+          sessionStorage.setItem('user', JSON.stringify(result))
+          
+        } catch (error) {
+          console.error(error.message)
+        }
       }
 
 
   return (
 
     <div className='position' style={{display:`${style}`}}>
-     
-      
       <div className="card m-auto">
        <div className="card-body">
         <p className="card-text">Don't Worry JustLogin</p>
@@ -78,17 +91,13 @@ function Login() {
             password:e.target.value
         })}  />
 
-        <button onClick={handleClick} className='login_btn w-100'>Login</button>
+        <button onClick={handleLogin} className='login_btn w-100'>Login</button>
 
         <span>Ahh You Don't have any cradential? don't be rude just click on it<a href="#" onClick={handleShow}>sin up</a></span>
-
-          </div>
-        
-        
-        </form>
             </div>
-           </div>
-        
+          </form>
+        </div>
+      </div>
     </div>
   )
 }

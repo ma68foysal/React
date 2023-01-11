@@ -2,6 +2,7 @@ import { createContext, useState } from 'react';
 import './App.css';
 import Hero from './Hero/Hero';
 import Layout from './Layout/Layout';
+import AddPost from './Layout/Posts/AddPost';
 import Posts from './Layout/Posts/Posts';
 import Login from './Users/Login/Login';
 import Regi from './Users/Regi/Regi';
@@ -10,6 +11,7 @@ import Regi from './Users/Regi/Regi';
 export const users = createContext()
 export const styles  = createContext()
 export const themeSwitch = createContext()
+
 
 function App() {
   
@@ -46,6 +48,7 @@ function App() {
     setTheme:setTheme,
   }
 
+
   return (
   <div onClick={()=>stylesValue.style === "block"?'none':stylesValue.show === 'block'?'none':'block'}>
     <themeSwitch.Provider value={themeInfo}>
@@ -56,6 +59,7 @@ function App() {
       <Regi/>
       <Posts/>
       <Hero/>
+      <AddPost/>
 
     </Layout>
     </styles.Provider>
