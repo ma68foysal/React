@@ -1,6 +1,6 @@
 
 import React, { useContext, useState } from 'react'
-import { users,styles } from '../../App'
+import { styles, users } from '../../context/Context'
 import '../Login/login.css'
 
 function Regi() {

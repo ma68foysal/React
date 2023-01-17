@@ -3,7 +3,8 @@ import React,{useContext} from 'react'
 import './hero.css'
 import Img from './Img.png'
 import dark from './dark.png'
-import { themeSwitch, users } from '../App'
+import { themeSwitch, users } from '../context/Context'
+
 
 function Hero() {
     const user = useContext(users)

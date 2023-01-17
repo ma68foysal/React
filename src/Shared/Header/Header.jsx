@@ -1,7 +1,8 @@
 import React, { useContext, useRef, useState } from 'react'
 import header from './Header.module.css'
 import Logo from './Hasan-Logo.png'
-import { styles, themeSwitch, users } from '../../App';
+import { styles, themeSwitch, users } from '../../context/Context'
+
 function Header() {
   const ThemeSwitch=useContext(themeSwitch)
   const{theme,setTheme}=ThemeSwitch

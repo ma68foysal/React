@@ -1,5 +1,5 @@
 import React, { useContext,useState } from 'react'
-import { users,styles } from '../../App'
+import { styles, users } from '../../context/Context'
 import './login.css'
 
 function Login() {
@@ -21,33 +21,7 @@ function Login() {
         ui.setShow('block')
    }
     
-      // async function handleClick() {
-       
-      //   try{
-      //       let respons = await fetch("https://blogs-webiste-api.onrender.com/users/signin",
-      //   {
-      //       method: 'POST',
-      //       headers: {
-      //           "Content-Type": "application/json",
-      //         },
-      //       body: JSON.stringify(login)
-      //   }
-         
-
-      //       );
-      //       let result= await respons.json()
-            
-      //       console.log(result);
-          
-      //       user.setIsLoggedIn(true)
-      //       ui.setStyle('none')
-      //       sessionStorage.setItem('user',JSON.stringify(result))
-
-      //   }catch(error ){
-      //       console.error(error.message)
-      //   }
-        
-      // }
+     
 
       async function handleLogin(e) {
         e.preventDefault()

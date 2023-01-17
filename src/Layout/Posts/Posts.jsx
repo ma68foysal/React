@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { users } from '../../App'
+import { users } from '../../context/Context'
 import styles from './posts.module.css'
 
 function Posts() {

@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react'
-import { users } from '../../App';
+import { users } from '../../context/Context.jsx'
 import './adpost.css'
 
 function AddPost() {
