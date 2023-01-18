@@ -1,7 +1,9 @@
-import React, { useContext, useRef, useState } from 'react'
+import React, { useContext, useRef, useState, } from 'react'
 import header from './Header.module.css'
 import Logo from './Hasan-Logo.png'
 import { styles, themeSwitch, users } from '../../context/Context'
+import { Link } from 'react-router-dom'
+
 
 function Header() {
   const ThemeSwitch=useContext(themeSwitch)
@@ -35,19 +37,19 @@ function Header() {
         <div className={header.container}>
         
         <div className={header.logo}>
-            <a href="#"><img className={header.logo} src={Logo} alt="" /></a>
+            <Link to="/"><img className={header.logo} src={Logo} alt="" /></Link>
             
         </div>
         <div className={header.navBar}>
             <ul>
-                <a className={header.navLinks} href=""><li className={header.navItem}>Home</li></a>
-                <a className={header.navLinks} href=""> <li className={header.navItem}>About</li></a>
-                <a className={header.navLinks} href=""><li className={header.navItem}>Contact</li></a>
-                <a className={header.navLinks} href=""><li className={header.navItem}>Blog</li></a>
+                <Link className={header.navLinks} to="/"><li className={header.navItem}>Home</li></Link>
+                <Link className={header.navLinks} to="/about"> <li className={header.navItem}>About</li></Link>
+                <Link className={header.navLinks} to="/contact"><li className={header.navItem}>Contact</li></Link>
+                <Link className={header.navLinks} to="/blog"><li className={header.navItem}>Blog</li></Link>
                 
                {
                 user.isLoggedIn && (
-                <a className={header.navLinks} href=""><li className={header.navItem}>Dashboard</li></a>
+                <Link className={header.navLinks} to=""><li className={header.navItem}>Dashboard</li></Link>
 
                 )
                 
