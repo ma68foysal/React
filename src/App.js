@@ -26,9 +26,6 @@ function App() {
             <Route path='/blog' element={<Blog/>}/>
           </Routes>
         </Router>
-        
-           
-
     </UserProvider>
     </StyleProvider>
     </ThemeProvider>

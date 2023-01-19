@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import Logo from '../Shared/Header/Hasan-Logo.png'
 import './about.css'
 
 function About() {
@@ -10,32 +9,32 @@ function About() {
         <div className="navbar-wrapper">
           <div className="navbar">
             <div className="navbar-logo">
-            <Link to="/"><img style={{width:"100px"}} src={Logo} alt="" /></Link>
+            <Link to="/"><img  src='./Images/brand/logo.png' alt="" /></Link>
                 <h5>Projectile</h5>
             </div>
             <div className="navbar-links">
-                <div className="nabbar-link-item p-regular"><a href="#">Home</a>
+                <div className="nabbar-link-item"><a className='p-regular nav-item-color' href="#">Home</a>
                   <i className='bx bx-chevron-down'></i>
               </div>
-                <div className="nabbar-link-item p-regular"><a href="#">Pricing</a>
+                <div className="nabbar-link-item "><a className='p-regular nav-item-color' href="#">Pricing</a>
                   <i className='bx bx-chevron-down'></i>
               </div>
-                <div className="nabbar-link-item p-regular"><a href="#">About</a>
+                <div className="nabbar-link-item "><a className='p-regular nav-item-color' href="#">About</a>
                   <i className='bx bx-chevron-down'></i>
               </div>
-                <div className="nabbar-link-item p-regular"><a href="#">CMS Pages</a><i className='bx bx-chevron-down'></i>
+                <div className="nabbar-link-item "><a className='p-regular nav-item-color' href="#">CMS Pages</a><i className='bx bx-chevron-down'></i>
               </div>
-                <div className="nabbar-link-item p-regular"><a href="#">Other Pages</a>
+                <div className="nabbar-link-item "><a className='p-regular nav-item-color' href="#">Other Pages</a>
                   <i className='bx bx-chevron-down'></i>
               </div>
             </div>
             <div className="navbar-btn">
                 <div className="cart-btn">
-                  <i className='bx bxs-cart p-regular' ></i>
-                  <a href="#">Cart</a>
+                  <i className='bx bxs-cart ' ></i>
+                  <a className='p-regular nav-item-color' href="#">Cart</a>
                 </div>
-                <div className="login-btn p-regular">
-                  <a href="#">Login</a>
+                <div className="login-btn ">
+                  <a className='p-regular nav-item-color' href="#">Login</a>
                 </div>
                 <div className="signup-btn">
                   <a href="#" className="btn-signup p-regular">Sign Up
@@ -48,13 +47,13 @@ function About() {
       <div className="container hero-wrapper">
           <div className="row flex-sm-column hero-box-wrapper">
             <div className="col-lg-6 col-md-6 col-sm-12 hero-box-left-item">
-                <h1 className="h1">Manage all your projects in one place</h1>
+                <h1 className="heading-1">Manage all your projects in one place</h1>
                 <p className="p-big">View plans, track progress, increase productivity and improve communication with Projectile.</p>
 
                 <a href="#" className="btn-primary">Get Started for Free</a>
 
                 <div className="star-img">
-                <img src="./Images/brand/Group 349.svg" alt=""/>
+                <img src="./Images/brand/Group349.svg" alt=""/>
                 </div>
                 <div className="star-img-p">
                 <p>Rated 4.9 on G2 & Capterra</p>
@@ -105,8 +104,8 @@ function About() {
       </div>
 
 
-      <div className="partner-section">
-          <hr/>
+      <div className="partner-section container-fluid">
+          
           <div className="partner-box">
             <h1 className="partner-heding">Trusted by INDUSTRY leaders</h1>
             <div className="partner-logos">
@@ -127,7 +126,7 @@ function About() {
               </div>
             </div>
           </div>
-          <hr/>
+          
       </div>
 
     

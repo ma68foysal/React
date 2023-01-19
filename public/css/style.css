@@ -50,7 +50,10 @@ _______________________ [ End Table of Contents ] ________________________ */
   outline: 0;
   box-sizing: border-box;
 }
-
+a{
+  color: #fff;
+  text-decoration: none !important;
+}
 
 hr{
   font-size: 5px!important;
@@ -131,6 +134,9 @@ body{
   justify-content: space-between;
   align-items: center;
 }
+.nav-item-color{
+  color:#fff;
+}
 .navbar-btn{
   width: 25%;
   display: flex;
@@ -171,7 +177,7 @@ body{
   padding-bottom: 240px !important;
   padding-left: 80px !important;
 }
-.h1{
+.heading-1{
   font-family:Author;
   font-size: 80px;
   line-height: 80px;

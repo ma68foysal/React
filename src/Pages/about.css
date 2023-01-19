@@ -1,12 +1,12 @@
 .about{
-    background: black;
-  color: #fff;
+  background: black;
+color: #fff;
 }
-.about a{
-    color: #fff;
-    text-decoration: none !important;
-  }
+/* .about a{
+  color: #fff;
+  text-decoration: none !important;
+}
 .about a:hover{
-    color: #fff;
-    
-  }
+  color: #fff;
+  
+} */
