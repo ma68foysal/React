@@ -1,9 +1,15 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 const navLink =
   "text-center md:px-4 w-full py-3 inline-block text-white text-lg uppercase";
 
-function NavBar() {
+function NavBar({loggedInUser}) {
+    const migrate = useNavigate()
+
+    function handleLogOut(){
+        sessionStorage.removeItem('user')
+        migrate("./login")
+    }
   return (
 
         <nav style={{ backgroundColor: "black" }} className="sticky top-0 z-50">
@@ -22,11 +28,12 @@ function NavBar() {
             <>
             
                 <>
-                <li className="w-full">
+                {loggedInUser && ( <li className="w-full">
                     <Link className={navLink} to={`/dashboard`}>
                     Dashboard
                     </Link>
-                </li>
+                </li>)}
+               
                 <li className="w-full">
                     <Link className={navLink} to={`/users`}>
                     Users
@@ -35,18 +42,21 @@ function NavBar() {
                 </>
             
             </>
-           
-            <li className="w-full">
-                <button className={navLink} >
+            {
+                loggedInUser ?(<li className="w-full">
+                <button className={navLink} onClick={handleLogOut} >
                 Logout
                 </button>
-            </li>
-           
-            <li className="w-full">
+            </li>):(  <li className="w-full">
                 <button className={navLink}>
                 <Link to="/login">Login</Link>
                 </button>
-            </li>
+            </li>)
+            }
+           
+            
+           
+          
            
         </ul>
         </div>
