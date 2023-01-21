@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import Logo from '../Shared/Header/Hasan-Logo.png'
+
 import './about.css'
 
 function About() {
@@ -10,7 +10,7 @@ function About() {
         <div className="navbar-wrapper">
           <div className="navbar">
             <div className="navbar-logo">
-            <Link to="/"><img style={{width:"100px"}} src={Logo} alt="" /></Link>
+            <Link to="/"><img  src='./Images/brand/logo.png' alt="" /></Link>
                 <h5>Projectile</h5>
             </div>
             <div className="navbar-links">
