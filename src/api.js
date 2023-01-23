@@ -22,3 +22,5 @@ import axios from "axios";
 
   export const loginUser = (userInfo) => Api.post('/api/user/login', userInfo)
   export const registerUser = (userInfo) => Api.post('/api/user/register', userInfo)
+  export const getQuizzes = () => Api.get('/api/quiz/all')
+  export const get_Quiz_by_id = (id) => Api.get(`/api/quiz/${id}`)
