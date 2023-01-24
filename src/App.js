@@ -5,6 +5,7 @@ import { BrowserRouter as Router,Routes, Route } from 'react-router-dom';
 import './App.css';
 import PlayQuiz from './Components/Quiz/PlayQuiz';
 import QuizDetails from './Components/Quiz/QuizDetails';
+import QuizResult from './Components/Quiz/QuizResult';
 import NavBar from './Components/Shared/NavBAr/NavBar';
 import Login from './Components/User/Login';
 import Registration from './Components/User/Registration';
@@ -39,6 +40,7 @@ function App() {
      <Route path='/'element={<Quizzes loggedInUser={loggedInUser}/>}/>
      <Route path='/quiz/:id'element={<QuizDetails/>}/>
      <Route path='/play/quiz'element={<PlayQuiz/>}/>
+     <Route path='/quiz/result'element={<QuizResult/>}/>
      </Routes>
      </Router>
  
