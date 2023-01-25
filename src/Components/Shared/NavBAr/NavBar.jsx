@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 const navLink =
-  "text-center md:px-4 w-full py-3 inline-block text-white text-lg uppercase";
+  "text-center md:px-4  py-3 inline-block text-white text-lg uppercase";
 
 function NavBar({loggedInUser}) {
     const migrate = useNavigate()
@@ -28,13 +28,21 @@ function NavBar({loggedInUser}) {
             <>
             
                 <>
-                {loggedInUser && ( <li className="w-full">
+                {loggedInUser && ( <>
+                <li className="">
                     <Link className={navLink} to={`/dashboard`}>
                     Dashboard
                     </Link>
-                </li>)}
+                </li>
+                <li className="">
+                     <Link to='/quize/add' className={navLink} >
+                    AddQuize
+                    </Link>
+                </li>
+                </>
+                )}
                
-                <li className="w-full">
+                <li className="">
                     <Link className={navLink} to={`/users`}>
                     Users
                     </Link>
@@ -43,11 +51,11 @@ function NavBar({loggedInUser}) {
             
             </>
             {
-                loggedInUser ?(<li className="w-full">
+                loggedInUser ?(<li className="">
                 <button className={navLink} onClick={handleLogOut} >
                 Logout
                 </button>
-            </li>):(  <li className="w-full">
+            </li>):(  <li className="">
                 <button className={navLink}>
                 <Link to="/login">Login</Link>
                 </button>

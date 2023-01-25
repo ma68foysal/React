@@ -46,13 +46,13 @@ function Quizzes({loggedInUser}) {
 
   return (
     <>
-    {loggedInUser&&(
+    {
      <div className="grid grid-cols-1 md:grid-cols-5 mt-3 md:ml-3">
           {quizzes.quize.map((quiz) => (
             <Quiz key={quiz._id} quiz={quiz} />
           ))}
         </div>
-    )
+    
     }
      
     </>

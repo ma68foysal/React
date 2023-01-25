@@ -3,6 +3,7 @@ import react, { useEffect, useState }  from 'react';
 import { BrowserRouter as Router,Routes, Route } from 'react-router-dom';
 
 import './App.css';
+import AddQuize from './Components/Quiz/AddQuize';
 import PlayQuiz from './Components/Quiz/PlayQuiz';
 import QuizDetails from './Components/Quiz/QuizDetails';
 import QuizResult from './Components/Quiz/QuizResult';
@@ -41,6 +42,7 @@ function App() {
      <Route path='/quiz/:id'element={<QuizDetails/>}/>
      <Route path='/play/quiz'element={<PlayQuiz/>}/>
      <Route path='/quiz/result'element={<QuizResult/>}/>
+     <Route path='/quize/add'element={<AddQuize/>}/>
      </Routes>
      </Router>
  
