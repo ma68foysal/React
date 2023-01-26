@@ -11,6 +11,7 @@ import NavBar from './Components/Shared/NavBAr/NavBar';
 import Login from './Components/User/Login';
 import Registration from './Components/User/Registration';
 import Quizzes from './Pages/Quizzes';
+import Practice from './practice/Practice';
 
 
 
@@ -43,6 +44,7 @@ function App() {
      <Route path='/play/quiz'element={<PlayQuiz/>}/>
      <Route path='/quiz/result'element={<QuizResult/>}/>
      <Route path='/quize/add'element={<AddQuize/>}/>
+     <Route path='/practice'element={<Practice/>}/>
      </Routes>
      </Router>
  

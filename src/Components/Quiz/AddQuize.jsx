@@ -9,74 +9,74 @@ import ModalView from '../../Customs/ModalView'
 
 
   
-
+const initState ={
+  name: "",
+  description: "",
+  price: "",
+  duration: "",
+  answerType: "",
+  image: "",
+}
+const quizRequest ='Quiz_Request'
 
 function AddQuize() {
-
-  
-  
-  
+  const [img,setImage]=useState(null)
+  const [newQuize,dispatch]=useReducer(quizReducer,initState)
 
 
-  const [img,setImage]=useState('./logo192.png')
-       
-  const initState ={
-    name: "",
-    description: "",
-    price: "",
-    duration: "",
-    answerType: "",
-    image: img,
-  }
-  const addQuize='addQuize'
-  function quizReducer(state,action){
+ 
+
+  
+
+  function quizReducer(state, action){
     switch(action.type){
-      case addQuize:
+      case quizRequest:
         return {
           ...state,
-          [action.payload.name]:action.payload.value
+          [action.payload.name]:action.payload.value,
+        }
+        case "Set_Image":
+        return {
+          ...state,
+          image: action.payload
         }
         default:
           return state
     }
   }
-  const [newQuize,dispatch]=useReducer(quizReducer,initState)
-       const {name,description, price,duration,answerType,image}=newQuize
-  console.log(newQuize);
+  
+    const {name,description, price,duration,answerType}=newQuize
+
         
-  function uploadimg (e){
+    function uploadimg (e){
     const reader = new FileReader()
     reader.onload= ()=>{
       if(reader.readyState===2){
-        setImage(reader.result)
-        
+        dispatch({
+          type: "Set_Image",
+          payload: reader.result
+        })
       }
     }
     reader.readAsDataURL(e.target.files[0])
+    
   }
 
   const oninputChange=(e)=>{
     dispatch({
-      type:addQuize,
+      type:quizRequest,
       payload:{
         name:e.target.name,
         value:e.target.value
-        
       }
     }
     )
     
   }
- function handleOnSubmit(e){
-  e.preventdefault()
- }
-  function hanleSubmit (){
-    
-    addQuiz(newQuize).then((data)=>
-    {
-      sessionStorage.getItem('quiz',JSON.stringify(data))
-    }
-    )
+
+  function handleSubmit (){
+    console.log({newQuize});
+    addQuiz(newQuize).then((data) => console.log({data}))
   }
   
   return (
@@ -197,7 +197,7 @@ function AddQuize() {
               
 
           <div className="text-center lg:text-left ">
-            <button onClick={hanleSubmit}  className="inline-block px-7 py-3 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">
+            <button onClick={handleSubmit}  className="inline-block px-7 py-3 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">
               submit
             </button>
             
