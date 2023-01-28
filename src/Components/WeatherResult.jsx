@@ -1,21 +1,38 @@
+import moment from 'moment/moment';
 import React from 'react'
 import result from './result.module.css'
 
-function WeatherResult() {
+function WeatherResult({data}) {
+  
+   
+    console.log(data);
+    const {data:{main}}=data
+    const {data:{timezone}}=data
+    const {data:{wind:{speed}}}=data
+    const {data:{sys:{sunrise}}}=data
+
+    const {humidity,pressure,temp}= main
+   
+
+
+  let x = moment.utc(sunrise,'X').add(timezone,'seconds').format('HH:mm a');
+
+
+  
   return (
+
     <div className={result.Container}>
         <span className={result.AppTitle}>React Weather App</span>
         <div className={result.InfoContainer} >
             
-            < span clasName={result.InfoLabel} >
-                {/* {value} */}
-                22
-                <span>| Few Clouds</span>
+            < span className={result.InfoLabel} >
+                {(temp-273).toFixed(2)}°C
+                <span>{`  |  ${data?.weather[0].description}`}</span>
             </span>
             < img className={result.InfoIcon}  src='./Icons/cloudy-night.svg'/>
         </div>
         <div className={result.WeatherContainer}>
-        <span className={result.condition}>Sylhet Division, BD
+        <span className={result.condition}>{data.data.name}
         {/* <span>{`${Math.floor(weather?.main?.temp - 273)}°C`}</span>
                     {`  |  ${weather?.weather[0].description}`} */}
         </span>
@@ -24,27 +41,28 @@ function WeatherResult() {
         <div className={result.WeatherInfoContainer}>
             <div className={result.WeatherResult}>
                 <img src="./Icons/temp.svg" alt="" />
-                <span className={result.span}>6 : 37
+                <span className={result.span}>
+                    {x}
                     <span>Sunrise</span>
                     </span> 
             </div>
             <div className={result.WeatherResult}>
                 <img src="./Icons/humidity.svg" alt="" />
-                <span className={result.span}>46
+                <span className={result.span}>{humidity}
 
                     <span>Humidity</span>
                     </span> 
             </div>
             <div className={result.WeatherResult}>
                 <img src="./Icons/wind.svg" alt="" />
-                <span className={result.span}>1.96
+                <span className={result.span}>{speed}
 
                     <span>Wind</span>
                     </span> 
             </div>
             <div className={result.WeatherResult}>
                 <img src="./Icons/pressure.svg" alt="" />
-                <span className={result.span}>1012
+                <span className={result.span}>{pressure}
 
                     <span>Pressure</span>
                     </span> 
