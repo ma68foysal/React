@@ -10,18 +10,19 @@ function WeatherInput({get_data}) {
   const [data, setData]=useState()
 
    function get_data(cityName){
-    const api =`http://api.openweathermap.org/data/2.5/weather?q=${cityName}&APPID=c2965f463fd1030468730b6b9d4096a8`
-    axios.get(api).then((res)=>{
-     setData(res)
-    })
-    .catch((error)=>{
-      console.error(error)
-    })
+
+            const api =`http://api.openweathermap.org/data/2.5/weather?q=${cityName}&APPID=c2965f463fd1030468730b6b9d4096a8`
+            axios.get(api).then((res)=>{
+            setData(res)
+            })
+            .catch((error)=>{
+              console.error(error)
+            })
+
   }
 
   function Onsubmit(e){
     e.preventDefault()
-   
     get_data(cityName)
   }
   function handleChange(e){
@@ -34,20 +35,19 @@ function WeatherInput({get_data}) {
       
  
   return (
-     data === undefined ? <div className={Style.Container}>
+     data === undefined ? 
+     <div className={Style.Container}>
      <span className={Style.AppTitle}>React Weather App</span>
      <img className={Style.WelcomeWeatherLogo} src="./Icons/perfect-day.svg" alt="" />
      <span className={Style.ChooseCityLabel}>Find Weather of your city
      </span>
+
      <div className={Style.SearchBox}>
          <input type="text" placeholder="Enter Your City" onChange={handleChange} />
          <button  type={"submit"} onClick={Onsubmit}>Search</button>
      </div>
    </div> :
-   <WeatherResult data={data}/>
-
-
-    
+   <WeatherResult data={data}/>  
   )
 }
 
