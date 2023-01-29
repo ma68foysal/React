@@ -3,14 +3,18 @@ import React from 'react'
 import result from './result.module.css'
 
 function WeatherResult({data}) {
-
+        console.log(data);
     const {data:{main}}=data
     const {data:{timezone}}=data
     const {data:{weather}}=data
     const {data:{wind:{speed}}}=data
-    const {data:{sys:{sunrise}}}=data
+    const {data:{sys:{sunrise,sunset}}}=data
     const {humidity,pressure,temp}= main
+
+    const isDay = weather[0].icon?.includes('d')
+
     const Sunrise = moment.utc(sunrise,'X').add(timezone,'seconds').format('HH:mm a');
+    const Sunset = moment.utc(sunset,'X').add(timezone,'seconds').format('HH:mm a');
   return (
 
     <div className={result.Container}>
@@ -19,7 +23,7 @@ function WeatherResult({data}) {
         <div className={result.InfoContainer} >
             
             < span className={result.InfoLabel} >
-            {(temp-273).toFixed(2)}°C<span>{`|${weather[0].description}`}</span>
+            {(temp-273).toFixed(2)}°C <span>{`|${weather[0].description}`}</span>
             </span>
             < img className={result.InfoIcon}  src='./Icons/cloudy-night.svg'/>
         </div>
@@ -32,9 +36,10 @@ function WeatherResult({data}) {
         <div className={result.WeatherInfoContainer}>
 
             <div className={result.WeatherResult}>
-                <img src="./Icons/temp.svg" alt="" />
-                <span className={result.span}>{Sunrise}
-                <span>Sunrise</span>
+                <img src={isDay ?'./Icons/cloudy-night.svg' :"./Icons/temp.svg"} alt="" />
+                <span className={result.span}>
+                {isDay ? Sunset :Sunrise }
+                <span>{isDay ?  "Sunset":"Sunrise" }</span>
                 </span> 
             </div>
 
