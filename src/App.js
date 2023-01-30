@@ -1,26 +1,26 @@
-import react, { useEffect, useState } from 'react';
+import react from 'react';
+import { BrowserRouter as Router , Routes,Route } from 'react-router-dom';
+import Products from './Components/Products';
+import NavBar from './Components/shared/NavBar';
 
 
 
 
 function App() {
-  const [products , setProduct]=useState()
-  
-  useEffect(()=>{
-    fetch('https://dummyjson.com/products')
-    .then(res => res.json())
-    .then((data)=>setProduct(data));
-  },[])
+ 
   
   
   return (
-  <div>
+  <>
 
-    {
-      products?.products?.map((singleProduct,i)=> <h1>{singleProduct.title}</h1>)
-    }
+    <Router>
+      <NavBar/>
+      <Routes>
+        <Route path='/' element={<Products/>}/>
+      </Routes>
+    </Router>
     
-  </div>
+  </>
 
   );
 }
