@@ -1,21 +1,24 @@
-import react from 'react';
-import { BrowserRouter as Router,Routes,Route } from 'react-router-dom';
-import WeatherInput from './Components/WeatherInput';
-
+import react, { useEffect, useState } from 'react';
 
 
 
 
 function App() {
-
+  const [products , setProduct]=useState()
+  
+  useEffect(()=>{
+    fetch('https://dummyjson.com/products')
+    .then(res => res.json())
+    .then((data)=>setProduct(data));
+  },[])
+  
+  
   return (
   <div>
 
-    <Router>
-    <Routes>
-        <Route path='/' element={<WeatherInput/>}/>
-    </Routes>
-    </Router>
+    {
+      products?.products?.map((singleProduct,i)=> <h1>{singleProduct.title}</h1>)
+    }
     
   </div>
 
