@@ -5,6 +5,7 @@ import Cart from './Components/shared/Cart';
 import CartDetails from './Components/shared/CartDetails';
 import NavBar from './Components/shared/NavBar';
 import CartInfoProvider from './context/CartInfoProvider';
+import CartItemProvider from './context/CartItemProvider';
 
 
 
@@ -15,6 +16,7 @@ function App() {
   
   return (
   <>
+  <CartItemProvider>
    <CartInfoProvider>
     <Router>
       <NavBar/>
@@ -25,6 +27,7 @@ function App() {
       </Routes>
     </Router>
     </CartInfoProvider>
+    </CartItemProvider>
     
   </>
 
