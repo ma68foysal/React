@@ -4,10 +4,13 @@ import { CartItem } from './context'
 function CartItemProvider({children}) {
  
     const [item, setItem]=useState([])
+    const [productId, setProductId]=useState(null)
 
     const items ={
         item,
-        setItem
+        setItem,
+        productId,
+        setProductId
         
     }
 

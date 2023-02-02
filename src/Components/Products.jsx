@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import ProductCase from '../util/ProductCase';
 import Product from './Product';
 import Cart from './shared/Cart';
+import SingleProductPage from './SingleProductPage';
 
 
 function Products() {
@@ -21,13 +22,12 @@ function Products() {
       <ProductCase>
         
     {
-
-      products?.map((singleProduct)=> 
+      products?.map((singleProduct,i)=> 
       <>
-        <Product singleProduct={singleProduct} key={singleProduct.id} /> 
-        {/* <Cart  singleProduct={singleProduct} key={singleProduct.id} />  */}
-      </>)
-    }
+        <Product singleProduct={singleProduct} key={i} />
+        
+      </>
+      )}
     </ProductCase>
     </div>
   )

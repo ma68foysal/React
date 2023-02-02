@@ -10,8 +10,10 @@ function Cart() {
   const {openCart,setOpeanCart}=cart
   const cartItems = useContext(CartItem)
   const{item}= cartItems
+
+  const selectedProduct = JSON.parse(sessionStorage.getItem('selectedProduct'))
   
-  console.log(item);
+
   
  
   const navigate = useNavigate()
@@ -25,10 +27,9 @@ function Cart() {
     <> 
     <div className='cartBody' style={{ display:!openCart ?'none':'block'}} >
     <div className='cart'>
-     {
-      item.map((cartProduct)=>
-        
-       <div className='cartItemBox d-flex justify-content-between' key={cartProduct.id}>
+   { 
+   selectedProduct ? item.map((cartProduct)=>
+   <div className='cartItemBox d-flex justify-content-between' key={cartProduct.id}>
           <div className='d-flex '>
             <img src={cartProduct.thumbnail} style={{width:'100px'}} alt="" />
             <div>
@@ -39,7 +40,7 @@ function Cart() {
           <div className='d-flex'>
             <div className='d-flex'>
               <button className='inrease'>+</button>
-              <p>{item.price}</p>
+              <p>{cartProduct.price}</p>
               <button className='decrise'>-</button>
             </div>
             <div>
@@ -48,9 +49,8 @@ function Cart() {
           </div>
         </div>
       
-      )
-     
-    }  
+      ):<h1>hello</h1>
+    }
     <button onClick={handleClick}>View CArt</button>
      </div>      
     </div>

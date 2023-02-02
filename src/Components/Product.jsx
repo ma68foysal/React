@@ -3,26 +3,37 @@ import React from 'react'
 import { useReducer } from 'react'
 import { useCallback } from 'react'
 import { useContext } from 'react'
+import { Link, useNavigate, useParams} from 'react-router-dom'
 import { CartItem } from '../context/context'
 import "../Style/style.css"
 import Cart from './shared/Cart'
+
 // import style from './product.module.css'
 
 function Product({singleProduct,i}) {
   const cartItems = useContext(CartItem)
-  const {item, setItem} = cartItems
-
+  const {item, setItem,productId,setProductId} = cartItems
+   
   
   function handleClick(){
     item.push(singleProduct)
     setItem(item)
+    sessionStorage.setItem("selectedProduct",JSON.stringify(item))
+  }
+  
+  const navigate = useNavigate()
+  
+  function viewProduct (){
+    setProductId(singleProduct)
+    navigate(`/single-product/${singleProduct.title}`)
+    
   }
 
   
   return (
     <>
    
-      <div className="col-lg-4">
+  <div className="col-lg-4" ke={i}>
         <div className="card" key={singleProduct.id}>
          <img src={singleProduct.thumbnail} className="card-img-top" alt="..."/>
          <div className="card-body">
@@ -34,10 +45,13 @@ function Product({singleProduct,i}) {
           </div>
           
           <a href="#" className="btn btn-primary" onClick={handleClick}>Add To Cart</a>
+          <a className="btn btn-primary ms-2" onClick={viewProduct}>View Details</a>
+          
         </div>
           </div>
   
   </div>
+  
   </>
   )
 }
