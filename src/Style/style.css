@@ -52,3 +52,9 @@
 .content{
     padding-left: 16px;
 }
+/* single-product-page */
+.product-img{
+    width: 100px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
