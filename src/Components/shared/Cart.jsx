@@ -12,23 +12,21 @@ function Cart() {
   const{item}= cartItems
 
   const selectedProduct = JSON.parse(sessionStorage.getItem('selectedProduct'))
-  
-
-  
  
   const navigate = useNavigate()
   function handleClick (){
     setOpeanCart(!openCart)
     navigate('/cart-details')
-    
   }
+ 
 
   return (
     <> 
     <div className='cartBody' style={{ display:!openCart ?'none':'block'}} >
+    
     <div className='cart'>
    { 
-   selectedProduct ? item.map((cartProduct)=>
+   selectedProduct ? selectedProduct.product.map((cartProduct)=>
    <div className='cartItemBox d-flex justify-content-between' key={cartProduct.id}>
           <div className='d-flex '>
             <img src={cartProduct.thumbnail} style={{width:'100px'}} alt="" />
@@ -40,7 +38,7 @@ function Cart() {
           <div className='d-flex'>
             <div className='d-flex'>
               <button className='inrease'>+</button>
-              <p>{cartProduct.price}</p>
+              <p>{cartProduct.cartQty}</p>
               <button className='decrise'>-</button>
             </div>
             <div>
@@ -49,10 +47,18 @@ function Cart() {
           </div>
         </div>
       
-      ):<h1>hello</h1>
+      ):
+      <div className=' cart-box'>
+        <div className='not-found text-center'>
+          <h1 className='not-found-text'>Ops! Here's Nothing To See.....</h1>
+        </div>
+      </div>
+    
     }
+   
     <button onClick={handleClick}>View CArt</button>
-     </div>      
+     </div> 
+         
     </div>
             
        

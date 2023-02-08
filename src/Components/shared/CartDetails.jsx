@@ -17,7 +17,7 @@ function CartDetails() {
     <div className='cart_Body' >
     
      { selectedProduct ?
-      item.map((cartProduct)=>
+      selectedProduct.map((cartProduct)=>
       <div className='cart_details'>
        <div className='cartItemBox d-flex justify-content-between'>
          <div className='d-flex '>

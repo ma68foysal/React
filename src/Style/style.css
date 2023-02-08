@@ -15,7 +15,7 @@
     z-index: 9999;
 }
 .cart{
-    width: 500px;
+   
     position: fixed;
     top: 14%;
     right: 2%;
@@ -24,6 +24,10 @@
     box-shadow: inset;
     border-radius: 10px;
     border: 1px solid rgb(243, 255, 254) ;
+}
+.not-found-text{
+    color: blue;
+    font-size: 18px;
 }
 .cartItemBox{
     padding: 8px;
@@ -51,6 +55,10 @@
 }
 .cart-detals-box{
     width: 50%;
+    margin: 100px auto;
+}
+.cart-box{
+   
     margin: 100px auto;
 }
 .not-found{

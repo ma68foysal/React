@@ -10,15 +10,23 @@ import Cart from './shared/Cart'
 
 // import style from './product.module.css'
 
-function Product({singleProduct,i}) {
+function Product({singleProduct}) {
   const cartItems = useContext(CartItem)
   const {item, setItem} = cartItems
    
   
   function handleClick(){
-    item.push(singleProduct)
-    setItem(item)
-    sessionStorage.setItem("selectedProduct",JSON.stringify(item))
+    const itemIndex =item.product.findIndex((itemIndex)=>itemIndex.id ===singleProduct.id)
+    if(itemIndex >= 0){
+      item.product[itemIndex].cartQty+=1
+
+    }else{
+      const temp ={...singleProduct, cartQty:1}
+      item.product.push(temp)
+      setItem(item)
+      sessionStorage.setItem("selectedProduct",JSON.stringify(item))
+    }
+   
   }
   
   const navigate = useNavigate()
@@ -33,7 +41,7 @@ function Product({singleProduct,i}) {
   return (
     <>
    
-  <div className="col-lg-4" ke={i}>
+  <div className="col-lg-4" ke={singleProduct.id}>
         <div className="card" key={singleProduct.id}>
          <img src={singleProduct.thumbnail} className="card-img-top" alt="..."/>
          <div className="card-body">
@@ -44,7 +52,7 @@ function Product({singleProduct,i}) {
           <p className='price'>{singleProduct.rating}</p>
           </div>
           
-          <a href="#" className="btn btn-primary" onClick={handleClick}>Add To Cart</a>
+          <a href="#" className="btn btn-primary" onClick={()=>handleClick()}>Add To Cart</a>
           <a className="btn btn-primary ms-2" onClick={viewProduct}>View Details</a>
           
         </div>

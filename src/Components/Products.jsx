@@ -24,7 +24,7 @@ function Products() {
     {
       products?.map((singleProduct,i)=> 
       <>
-        <Product singleProduct={singleProduct} key={i} />
+        <Product singleProduct={singleProduct} key={singleProduct.id} />
         
       </>
       )}
